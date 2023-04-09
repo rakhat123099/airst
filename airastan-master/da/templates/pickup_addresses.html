@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Адреса для забора груза</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Адрес</th>
+        <th>Телефон</th>
+        <th>Факс</th>
+        <th>E-mail</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for address in addresses %}
+        <tr>
+          <td>{{ address.address }}</td>
+          <td>{{ address.phone }}</td>
+          <td>{{ address.fax }}</td>
+          <td>{{ address.e_mail }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

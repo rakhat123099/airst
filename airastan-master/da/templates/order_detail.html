@@ -1,0 +1,25 @@
+<h1>Order - {{ order.name }}</h1>
+
+<thead>
+    <tr>
+        <th>Name - {{client.name}} </th>
+        <p>Client: {{ order.client.name }}</p>
+        <br><th>Price per unit -
+            <td>{{ order.price_per_unit }}</td>
+        </th><br>
+        
+        <th>Quantity -
+            <td>{{ order.quantity }}</td>
+        </th>
+        <br><th>Total price - 
+            <td>{{ order.price_per_unit}} | {{order.quantity }}</td>
+        </th><br>
+    </tr>
+</thead>
+{% if order.status_set.all %}
+    <ul>
+        {% for status in order.status_set.all %}
+            <li>{{ status.name }} - {{ status.timestamp }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}

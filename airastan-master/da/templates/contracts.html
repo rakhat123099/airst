@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Contracts</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Supplier Code</th>
+                <th>Reg Num</th>
+                <th>Pot Num</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for contract in contracts %}
+                <tr>
+                    <td>{{ contract.supplier_code }}</td>
+                    <td>{{ contract.reg_num }}</td>
+                    <td>{{ contract.pot_num }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

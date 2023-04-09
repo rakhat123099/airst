@@ -1,0 +1,27 @@
+<h1>{{ client.name }}</h1>
+<p>Email: {{ client.email }}</p>
+<p>Phone: {{ client.phone }}</p>
+<p>Number of orders: {{ orders.count }}</p>
+
+{% if orders %}
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price per unit</th>
+                <th>Quantity</th>
+                <th>Total price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+                <tr>
+                    <td><a href="{% url 'order_detail' order.id %}">{{ order.name }}</a></td>
+                    <td>{{ order.price_per_unit }}</td>
+                    <td>{{ order.quantity }}</td>
+
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endif %}

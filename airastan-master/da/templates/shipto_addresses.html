@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Ship To Addresses</h1>
+    <ul>
+        {% for address in addresses %}
+            <li>{{ address.address }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

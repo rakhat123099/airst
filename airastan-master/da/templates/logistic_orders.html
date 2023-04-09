@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Логистические заказы</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Номер заказа</th>
+        <th>Номер строки заказа</th>
+        <th>Артикул</th>
+        <th>Номер контракта</th>
+        <th>Код поставщика</th>
+        <th>Адрес для забора груза</th>
+        <th>Адрес доставки</th>
+        <th>Дата доставки</th>
+        <th>Комментарии</th>
+        <th>Редактировать</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for order in orders %}
+        <tr>
+          <td>{{ order.order_number }}</td>
+          <td>{{ order.order_line }}</td>
+          <td>{{ order.pn }}</td>
+          <td>{{ order.contract_id.reg_num }}</td>
+          <td>{{ order.supplier_code }}</td>
+          <td>{{ order.pickup_address_id.address }}</td>
+          <td>{{ order.shipto_address_id.address }}</td>
+          <td>{{ order.delivery_date }}</td>
+          <td>{{ order.comments }}</td>
+          <td>{{ order.can_edit }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
